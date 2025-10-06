@@ -3,6 +3,7 @@ name: Publish CodeQL Pack to GHCR
 on:
   workflow_dispatch:
 
+
 permissions:
   contents: read
   packages: write
@@ -12,9 +13,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Install CodeQL with brew
+      - name: Install CodeQL
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CODEQL_HOME: ${{ github.workspace }}/codeql_home
+          CODEQL_CLI_VERSION: "2.23.2"
         run: |
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install codeql
+          echo "Installing CodeQL CLI v${CODEQL_CLI_VERSION}."
+  
+          mkdir -p $CODEQL_HOME
+          echo "Change directory to $CODEQL_HOME"
+          pushd $CODEQL_HOME
+  
+          echo "Downloading CodeQL CLI v${CODEQL_CLI_VERSION}."
+          gh release download "v${CODEQL_CLI_VERSION}" --repo https://github.com/github/codeql-cli-binaries --pattern codeql-linux64.zip
+  
+          echo "Unzipping CodeQL CLI."
+          unzip -q codeql-linux64.zip
+  
+          popd
+          echo "Done."
+          echo "codeql-cli-version=${CODEQL_CLI_VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Add CodeQL to the PATH
+        shell: bash
+        env:
+          CODEQL_HOME: ${{ github.workspace }}/codeql_home
+        run: |
+          echo "Adding CodeQL CLI to the PATH."
+          echo "$CODEQL_HOME/codeql" >> $GITHUB_PATH
+
       - name: Publish CodeQL pack
         run: codeql pack publish

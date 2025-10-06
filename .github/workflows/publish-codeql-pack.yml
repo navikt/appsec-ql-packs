@@ -11,17 +11,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript
-
+      - uses: actions/checkout@v5
       - name: Publish CodeQL pack
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Publish the pack to GHCR
-          echo "$GITHUB_TOKEN" | codeql pack publish --registry https://ghcr.io/v2/ --auth-stdin
+        run: codeql pack publish

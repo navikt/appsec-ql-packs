@@ -1,0 +1,16 @@
+name: Publish CodeQL Pack to GHCR
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Publish CodeQL pack
+        run: codeql pack publish

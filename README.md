@@ -10,8 +10,8 @@ This repository contains data extension models for GitHub Actions analysis.
 
 The model extends the list of trusted Actions publishers for the `actions/unpinned-tag` query. Actions from trusted publishers are allowed to use unpinned tags without triggering security alerts.
 
-**Trusted publishers:**
-- `navikt` - NAV IT organization
+**Trusted actions:**
+- `navikt/automerge-dependabot` - NAV IT automated dependency management
 
 ## Usage
 

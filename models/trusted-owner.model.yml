@@ -3,4 +3,4 @@ extensions:
       pack: codeql/actions-all
       extensible: trustedActionsOwnerDataModel
     data:
-      - ["navikt"]
+      - ["navikt/automerge-dependabot"]

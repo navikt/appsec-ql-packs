@@ -1,0 +1,5 @@
+---
+# Query suite for NAV custom JavaScript security queries
+- description: NAV custom security queries for JavaScript
+- queries: .
+- apply: security-queries-selectors.yml

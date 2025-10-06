@@ -1,0 +1,6 @@
+name: navikt/python-queries
+version: 0.0.1
+library: false
+suites: codeql-suites
+dependencies:
+  codeql/python-all: "*"

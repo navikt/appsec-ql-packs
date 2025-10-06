@@ -1,0 +1,5 @@
+---
+# Query suite for NAV custom Java security queries
+- description: NAV custom security queries for Java
+- queries: .
+- apply: security-queries-selectors.yml

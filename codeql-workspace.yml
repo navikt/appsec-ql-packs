@@ -1,0 +1,7 @@
+---
+# CodeQL workspace configuration for appsec-ql-packs
+# This file defines the structure of query packs in this workspace
+
+provide:
+  - "*/qlpack.yml"
+

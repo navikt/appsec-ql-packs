@@ -1,0 +1,8 @@
+---
+# Selector for security-related queries
+- include:
+    kind:
+    - problem
+    - path-problem
+    tags contain:
+    - security

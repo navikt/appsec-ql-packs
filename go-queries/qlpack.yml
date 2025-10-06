@@ -1,0 +1,6 @@
+name: navikt/go-queries
+version: 0.0.1
+library: false
+suites: codeql-suites
+dependencies:
+  codeql/go-all: "*"

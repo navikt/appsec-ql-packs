@@ -1,0 +1,34 @@
+# CodeQL databases and results
+*.sarif
+*.bqrs
+*.csv
+/results/
+/db/
+
+# CodeQL cache
+.codeql/
+*.dbscheme
+*.dbscheme.stats
+
+# Build artifacts
+*.dll
+*.exe
+*.o
+*.so
+*.dylib
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+tmp/
+temp/

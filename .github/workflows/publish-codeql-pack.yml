@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: find codeql
+        run: where codeql
       - name: Publish CodeQL pack
         run: codeql pack publish

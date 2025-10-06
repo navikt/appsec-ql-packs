@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: github/codeql-action/init@v3
+      - name: Install CodeQL with brew
+        run: brew install codeql
       - name: Publish CodeQL pack
         run: codeql pack publish
